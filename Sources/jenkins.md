@@ -14,9 +14,10 @@ Restart the Jenkins service: `brew services restart jenkins-lts`
 
 Update the Jenkins version: `brew upgrade jenkins-lts`
 
-Change httpport in: 
+Change port: 
 ```
-/usr/local/Cellar/jenkins-lts/2.222.1/homebrew.mxcl.jenkins-lts.plist
+vi /usr/local/Cellar/jenkins-lts/2.222.1/homebrew.mxcl.jenkins-lts.plist
+
 ```
 
 
