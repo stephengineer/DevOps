@@ -14,10 +14,20 @@ Restart the Jenkins service: `brew services restart jenkins-lts`
 
 Update the Jenkins version: `brew upgrade jenkins-lts`
 
-Change httpport in: 
+Change port: 
 ```
-/usr/local/Cellar/jenkins-lts/2.222.1/homebrew.mxcl.jenkins-lts.plist
+vi /usr/local/Cellar/jenkins-lts/2.222.1/homebrew.mxcl.jenkins-lts.plist
+
 ```
 
 
 Ref: https://jenkins.io/download/lts/macos/
+
+
+# Linux Installers for Jenkins
+
+```
+wget -q -O – https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add –
+sudo apt-get update
+sudo apt-get install jenkins
+```

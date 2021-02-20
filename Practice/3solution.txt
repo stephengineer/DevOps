@@ -1,0 +1,24 @@
+# Deploy repo to Github/Bitbucket via git
+
+## create repo
+```
+echo "# DevOps" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/zhongqi1112/DevOps.git
+git push -u origin main
+```
+
+## Use ssh
+```
+ssh-keygen -t rsa
+pbcopy < ~/.ssh/id_rsa.pub
+git clone git@github.com:zhongqi1112/DevOps.git
+```
+
+## Bitbucker URL
+```
+git clone https://stephengineer-admin@bitbucket.org/stephengineer/test.git
+```
