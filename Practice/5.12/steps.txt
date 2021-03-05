@@ -1,0 +1,4 @@
+1. create project by command in "createProject.txt"
+2. run "mvn test" get 0 test
+3. add test file and run "mvn test". Tests are fail as expected.
+4. modify the return type of test. Tests are successfully as expected.
