@@ -1,0 +1,6 @@
+1. Download Eclipse from: https://www.eclipse.org/downloads/
+
+2. Clone the repository from Github: 
+    `git clone https://github.com/SimplilearnDevOpsOfficial/Lesson-04-JUnitTDD.git`
+
+3. Compile project in Eclipse
