@@ -1,0 +1,35 @@
+Step 1: Pull a Docker image and create files in it
+1. Stop all the active running containers and ensure that no containers are running in detach mode
+2. Pull a new ubuntu image from Docker Hub
+$ docker pull ubuntu
+3. Check if it has been pulled and is available 
+docker ps -a
+4. Now, run the docker container
+docker run  -itd ubuntu
+5. Check if the docker container is up and running
+docker ps
+6. Now, log in to the ubuntu instance 
+docker exec -it <container_ID> bash
+7. Create a folder and files in it
+mkdir test1 test2
+cd test1
+touch hello.txt hello.html hello.py
+8. Check if the files have been created
+ls -lart
+9. Exit the container using CTRL+D
+
+
+Step 2: Log in at DockerHub
+1. Create an account in DockerHub https://hub.docker.com/ and log in. Execute the commands mentioned below to log in at DockerHub through your terminal:
+docker login –-username=<Your_username> --password=<Your_password>
+2. Create another replicated image of Ubuntu
+docker commit <Image_ID> <your_DockerHub_username>/tag
+
+
+Step 3: Deploy the image to DockerHub
+1. Check if it has been created
+docker images
+2. Now, push it to DockerHub
+docker push <Repository/Image>
+3. Go to your DockerHub account and reload the page. You should be able to see the image pushed from the terminal
+
