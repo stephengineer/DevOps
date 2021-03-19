@@ -1,6 +1,4 @@
-# macOS Installers for Jenkins LTS 
-
-## Homebrew Installer
+## macOS Installers for Jenkins LTS 
 
 Sample commands:
 
@@ -20,14 +18,74 @@ vi /usr/local/Cellar/jenkins-lts/2.222.1/homebrew.mxcl.jenkins-lts.plist
 
 ```
 
-
 Ref: https://jenkins.io/download/lts/macos/
 
 
-# Linux Installers for Jenkins
+## Linux Installers for Jenkins
 
 ```
 wget -q -O – https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add –
 sudo apt-get update
 sudo apt-get install jenkins
 ```
+
+
+## Troubleshooting
+
+Issue: docker: command not found (Mac)
+Ddd Docker's path to the file below: /usr/local/Cellar/jenkins-lts/2.176.3/homebrew.mxcl.jenkins-lts.plist (Whole file looks like below)
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>homebrew.mxcl.jenkins-lts</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/libexec/java_home</string>
+      <string>-v</string>
+      <string>1.8</string>
+      <string>--exec</string>
+      <string>java</string>
+      <string>-Dmail.smtp.starttls.enable=true</string>
+      <string>-jar</string>
+      <string>/usr/local/opt/jenkins-lts/libexec/jenkins.war</string>
+      <string>--httpListenAddress=127.0.0.1</string>
+      <string>--httpPort=8080</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Docker.app/Contents/Resources/bin/:/Users/zq/Library/Group\ Containers/group.com.docker/Applications/Docker.app/Contents/Resources/bin</string>
+    </dict>
+  </dict>
+</plist>
+```
+
+Ref: https://stackoverflow.com/questions/40043004/docker-command-not-found-mac-mini-only-happens-in-jenkins-shell-step-but-wo
+
+
+Issue: Docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock (Ubuntu)
+$ usermod -aG docker jenkins
+$ usermod -aG root jenkins
+$ sudo chmod 777 /var/run/docker.sock
+
+Ref: https://stackoverflow.com/questions/47854463/docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socke
+
+
+Issue: NodeJs Version is lower than requirement (Ubuntu)
+
+# Update NodeJs
+$ sudo npm cache clean -f
+$ sudo npm install -g n
+$ sudo n stable
+$ sudo n latest
+# fix /usr/bin/node
+$ sudo apt-get install --reinstall nodejs-legacy
+
+Ref: https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version
+
