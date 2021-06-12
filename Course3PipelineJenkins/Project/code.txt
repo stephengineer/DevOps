@@ -1,0 +1,39 @@
+## Starting with Jenkins
+
+Check if jenkins is running
+	$ ps -ef | grep jenkins
+
+Jenkins url : http://localhost:8081
+
+See unlock password
+	$ cat /home/labsuser/jenkins/secrets/initialAdminPassword
+
+Check Maven version
+	$ mvn --version
+
+## Config Env
+
+Config Maven, JDK, Git on Jenkins
+
+## Get Maven Project
+
+Clone repo
+	$ git clone https://github.com/jenkins-docs/simple-java-maven-app
+
+Build project
+	$ mvn compile
+	$ mvn package
+
+## Setup Jenkins
+
+1. Config Jenkins
+2. Build Pipeline
+
+## Tomcat
+Download and install Tomcat
+	$ tar xvf apache-tomcat-10.0.6.tar.gz
+	$ cd apache-tomcat-10.0.6
+	$ ./bin/catalina.sh  start
+
+Copy WAR file to Tomcat
+	$ cp sample.var ~/apache-tomcat-10.0.6/webapps
